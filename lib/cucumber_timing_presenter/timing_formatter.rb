@@ -1,3 +1,7 @@
+require 'usage_record'
+require 'unused_steps'
+require 'all_usage_results_html_presenter'
+
 module DistributedLife
   class TimingFormatter
     def initialize(step_mother, io, options)
