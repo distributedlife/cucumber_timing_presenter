@@ -1,3 +1,4 @@
+require 'cucumber_timing_presenter/configuration'
 require 'cucumber_timing_presenter/usage_record'
 require 'cucumber_timing_presenter/unused_steps'
 require 'cucumber_timing_presenter/timing_formatter'

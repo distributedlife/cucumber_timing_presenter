@@ -8,8 +8,8 @@ module DistributedLife
 
     def generate_html usage
       file_string = ""
-      puts Dir.pwd
-      File.open("templates/usage.template.html") do |file|
+
+      File.open(CucumberTimingPresenter::Configuration.usage_template_path) do |file|
         while line = file.gets
           file_string = "#{file_string}#{line}"
         end
