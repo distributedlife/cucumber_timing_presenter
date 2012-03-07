@@ -27,6 +27,7 @@ module DistributedLife
     end
 
     def output content
+#      File.open("tmp/cucumber_timing_presenter/all_usage_results.html", "w") do |file|
       File.open("tmp/all_usage_results.html", "w") do |file|
         file.write content
       end
