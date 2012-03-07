@@ -7,6 +7,8 @@ module DistributedLife
       
       @usage_record = UsageRecord.new
       @unused_steps = UnusedSteps.new
+
+      @presenters = ['AllUsageResultsHtmlPresenter']
     end
 
     #call backs
@@ -27,7 +29,10 @@ module DistributedLife
       @usage_record.calculate
 
       AllUsageResultsHtmlPresenter.new @usage_record
-      
+
+#      @presenters.each do |presenter|
+#        presenter.new @usage_record
+#      end
 #      @usage_record.all.each do |step_name, usage|
 #        puts step_name
 #        puts "\tcount: #{usage[:instances].count}"
