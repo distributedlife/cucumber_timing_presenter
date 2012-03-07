@@ -1,6 +1,0 @@
-0.0050000 /^Then this step is used$/                                                                                    # features/step_definitions/internal_portal_steps.rb:136
-  0.0050000 Then this step is used                                                                                      # features/april/internal_portal.feature:119
-0.0000000 /^an unused step$/                                                                                            # features/step_definitions/datastage/common_steps.rb:149
-  NOT MATCHED BY ANY STEPS
-0.0000000 /^and another unused step$/                                                                                   # features/step_definitions/datastage/common_steps.rb:159
-  NOT MATCHED BY ANY STEPS

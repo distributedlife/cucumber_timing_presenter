@@ -1,0 +1,1 @@
+require 'timing_formatter'
