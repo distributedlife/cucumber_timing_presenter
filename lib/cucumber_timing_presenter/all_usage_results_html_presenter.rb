@@ -1,5 +1,3 @@
-require 'usage_record_html_presenter'
-
 module DistributedLife
   class AllUsageResultsHtmlPresenter < UsageRecordHtmlPresenter
     def initialize usage_record
