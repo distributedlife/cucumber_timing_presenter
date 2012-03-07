@@ -25,29 +25,21 @@ module DistributedLife
     end
 
     def after_features(features)
-      add_unused_stepdefs
+      get_unused_stepdefs
+      
       @usage_record.calculate
 
       AllUsageResultsHtmlPresenter.new @usage_record
+      UnusedStepsHtmlPresenter.new @unused_steps
 
 #      @presenters.each do |presenter|
 #        presenter.new @usage_record
-#      end
-#      @usage_record.all.each do |step_name, usage|
-#        puts step_name
-#        puts "\tcount: #{usage[:instances].count}"
-#        puts "\tsum: #{usage[:instances].sum}"
-#        puts "\taverage: #{usage[:instances].sum / usage[:instances].count}"
-#      end
-#
-#      @unused_steps.all.each do |step_name, where|
-#        puts "UNUSED: #{step_name} - #{where}"
 #      end
     end
 
 
     #helpers
-    def add_unused_stepdefs
+    def get_unused_stepdefs
       @step_mother.unmatched_step_definitions.each do |step_definition|
         @unused_steps.record step_definition.regexp_source, step_definition.file_colon_line
       end
