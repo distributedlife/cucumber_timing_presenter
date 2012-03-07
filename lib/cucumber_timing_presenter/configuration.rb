@@ -2,7 +2,7 @@ module DistributedLife
   module CucumberTimingPresenter
     class Configuration
       def self.usage_template_path
-        File.realpath("templates/usage.template.html")
+        "templates/all_usage_results.html"
       end
     end
   end
