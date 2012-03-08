@@ -10,7 +10,7 @@ module CucumberTimingPresenter
       html.replace "PP_STEP_HIGHEST_ELAPSED_TIME", format_usage(usage.highest_elapsed_time)
       html.replace "PP_STEP_GREATEST_VARIATION", format_usage(usage.greatest_variation)
       html.replace "PP_ALL_STEPS", format_all(usage.all)
-      Htmlhtml.output "all_usage_results.html"
+      html.output "all_usage_results.html"
     end
   end
 end
