@@ -1,4 +1,4 @@
-module DistributedLife
+module CucumberTimingPresenter
   class TimingFormatter
     def initialize(step_mother, io, options)
       @step_mother = step_mother

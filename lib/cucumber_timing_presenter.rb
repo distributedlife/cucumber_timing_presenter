@@ -6,4 +6,3 @@ require 'cucumber_timing_presenter/html_template'
 require 'cucumber_timing_presenter/usage_record_html_presenter'
 require 'cucumber_timing_presenter/all_usage_results_html_presenter'
 require 'cucumber_timing_presenter/unused_steps_html_presenter'
-

@@ -1,4 +1,4 @@
-module DistributedLife
+module CucumberTimingPresenter
   class UnusedSteps
     def initialize
       @record = Hash.new

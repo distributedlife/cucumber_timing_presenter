@@ -1,4 +1,4 @@
-module DistributedLife
+module CucumberTimingPresenter
   class UsageRecordHtmlPresenter
     def format_usage usage
       step_name = usage.first
