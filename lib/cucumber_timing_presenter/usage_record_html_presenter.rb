@@ -16,6 +16,18 @@ module CucumberTimingPresenter
       html
     end
 
+    def format_unused_steps all_unused
+      html = "<table><trbody>"
+      html = "#{html}<tr><th style='text-align:right;'>step</th><th>where</th></tr>"
+
+      all_unused.each do |step_name, where|
+        html = "#{html}<tr><td style='text-align:right;'>#{step_name}</th><td style='padding-left:0.6em;'><pre>#{where}</pre></td></tr>"
+      end
+
+      html = "#{html}</trbody></table>"
+      html
+    end
+
     def format_all all_usage
       output = ""
       
