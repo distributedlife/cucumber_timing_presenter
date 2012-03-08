@@ -70,7 +70,7 @@ module CucumberTimingPresenter
 
     describe 'all' do
       before(:each) do
-        subject.record "my step 1", 25
+        subject.record "my step 1", 24
         subject.record "my step 1", 50
         subject.record "my step 2", 75
       end
@@ -80,9 +80,9 @@ module CucumberTimingPresenter
         subject.all.each_with_index do |step_name, data, index|
           case index
           when 1
-            step_name.should == "my_step 1"
-          when 2
             step_name.should == "my_step 2"
+          when 2
+            step_name.should == "my_step 1"
           end
         end
       end
@@ -141,14 +141,30 @@ module CucumberTimingPresenter
       end
 
       describe 'average_times_plot_data' do
-        it 'should return all the averages' do
-          subject.average_times_plot_data.should == [37.5, 50.0, 42.5]
+        it 'should return all the averages sorted by average amount descending' do
+          subject.record "my step 1", 25
+          subject.record "my step 1", 50
+          subject.record "my step 2", 49
+          subject.record "my step 2", 51
+          subject.record "my step 3", 75
+          subject.record "my step 3", 10
+
+          subject.calculate
+          
+          subject.average_times_plot_data.should == [50.0, 42.5, 37.5]
         end
       end
 
       describe 'total_times_plot_data' do
-        it 'should return the total times of each step' do
-          subject.total_times_plot_data.should == [75.0, 100.0, 85.0]
+        it 'should return the total times of each step sorted by average amount descending' do
+          subject.record "my step 1", 25
+          subject.record "my step 1", 50
+          subject.record "my step 3", 75
+          subject.record "my step 3", 10
+
+          subject.calculate
+
+          subject.total_times_plot_data.should == [100.0, 170, 150.0]
         end
       end
     end

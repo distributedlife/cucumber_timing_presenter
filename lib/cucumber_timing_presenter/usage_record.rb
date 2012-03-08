@@ -47,11 +47,11 @@ module CucumberTimingPresenter
     end
 
     def average_times_plot_data
-      @record.map {|step_name, data| data[:average].to_f}
+      @record.map {|step_name, data| data[:average].to_f}.sort.reverse
     end
 
     def total_times_plot_data
-      @record.map {|step_name, data| data[:total].to_f}
+      sort_by_property(:average).reverse.map {|step_name, data| data[:total].to_f}
     end
 
     def step_part_of_total
