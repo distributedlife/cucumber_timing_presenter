@@ -1,5 +1,5 @@
 module DistributedLife
   module CucumberTimingPresenter
-    VERSION = "0.0.1.18"
+    VERSION = "1.0.0.0"
   end
 end
