@@ -17,7 +17,7 @@ module CucumberTimingPresenter
       @record.each do |key, usage|
         usage[:total] = usage[:instances].inject{|sum,x| sum + x }
         usage[:occurances] = usage[:instances].count
-        usage[:average] = usage[:total] / usage[:occurances]
+        usage[:average] = usage[:total].to_f / usage[:occurances].to_f
         usage[:fastest] = usage[:instances].sort.first
         usage[:slowest] = usage[:instances].sort.last
         usage[:variation] = usage[:slowest] - usage[:fastest]
@@ -44,6 +44,22 @@ module CucumberTimingPresenter
 
     def greatest_variation
       sort_by_property(:variation).reverse.first
+    end
+
+    def average_times_plot_data
+      @record.map {|step_name, data| data[:average].to_f}
+    end
+
+    def total_times_plot_data
+      @record.map {|step_name, data| data[:total].to_f}
+    end
+
+    def step_part_of_total
+      @record.map {|step_name, data| data[:total]}.sort.reverse
+    end
+
+    def total_elapsed_time
+      @record.map {|step_name, data| data[:total]}.inject{|sum,x| sum + x }
     end
 
     def sample_variance data

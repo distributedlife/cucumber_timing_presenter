@@ -7,8 +7,6 @@ module CucumberTimingPresenter
       
       @usage_record = UsageRecord.new
       @unused_steps = UnusedSteps.new
-
-      @presenters = ['AllUsageResultsHtmlPresenter']
     end
 
     #call backs
@@ -31,10 +29,8 @@ module CucumberTimingPresenter
 
       AllUsageResultsHtmlPresenter.new @usage_record
       UnusedStepsHtmlPresenter.new @unused_steps
-
-#      @presenters.each do |presenter|
-#        presenter.new @usage_record
-#      end
+      StepAverageAndTotalHtmlPresenter.new @usage_record
+      StepTimesOfWholeHtmlPresenter.new @usage_record
     end
 
 

@@ -18,10 +18,10 @@ module CucumberTimingPresenter
 
     def format_unused_steps all_unused
       html = "<table><trbody>"
-      html = "#{html}<tr><th style='text-align:right;'>step</th><th>where</th></tr>"
+      html = "#{html}<tr><th style='text-align:right;'>step</th><th style='text-align:left;'>where</th></tr>"
 
       all_unused.each do |step_name, where|
-        html = "#{html}<tr><td style='text-align:right;'>#{step_name}</th><td style='padding-left:0.6em;'><pre>#{where}</pre></td></tr>"
+        html = "#{html}<tr><td style='text-align:right;'>#{step_name}</th><td style='text-align:left; padding-left:0.6em;'><pre>#{where}</pre></td></tr>"
       end
 
       html = "#{html}</trbody></table>"

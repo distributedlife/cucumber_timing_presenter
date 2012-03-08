@@ -127,6 +127,30 @@ module CucumberTimingPresenter
           subject.greatest_variation.first.should == "my step 3"
         end
       end
+
+      describe 'step_part_of_total' do
+        it 'should return the total times of each step from largest to smallest' do
+          subject.step_part_of_total.should == [100.0, 85.0, 75.0]
+        end
+      end
+
+      describe 'total_elapsed_time' do
+        it 'should return the count of all steps' do
+          subject.total_elapsed_time.should == 260
+        end
+      end
+
+      describe 'average_times_plot_data' do
+        it 'should return all the averages' do
+          subject.average_times_plot_data.should == [37.5, 50.0, 42.5]
+        end
+      end
+
+      describe 'total_times_plot_data' do
+        it 'should return the total times of each step' do
+          subject.total_times_plot_data.should == [75.0, 100.0, 85.0]
+        end
+      end
     end
 
     describe 'sample_variance' do
