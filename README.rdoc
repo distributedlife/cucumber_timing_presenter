@@ -1,6 +1,11 @@
 = cucumber_timings_presenter
 
-Description goes here.
+A cucumber formatter that will generate four html pages showing step time metrics and some graphs showing what percentage of build time is spent on so few steps.
+
+To use: cucumber --format CucumberTimingPresenter::TimingFormatter
+
+Look in the tmp/cucumber_timing_presenter path for the html documents.
+
 
 == Contributing to cucumber_timings_presenter
  
