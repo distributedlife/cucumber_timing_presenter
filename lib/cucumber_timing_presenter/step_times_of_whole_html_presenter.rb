@@ -1,5 +1,5 @@
 module CucumberTimingPresenter
-  class StepAverageAndTotalHtmlPresenter < UsageRecordHtmlPresenter
+  class StepTimesOfWholeHtmlPresenter < UsageRecordHtmlPresenter
     def initialize usage_record
       generate_html usage_record
     end
