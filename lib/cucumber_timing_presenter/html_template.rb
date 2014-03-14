@@ -11,9 +11,11 @@ module CucumberTimingPresenter
     end
 
     def output filename
-      File.open(Configuration.tmp_file(filename), 'w') do |file|
+      absolute_file_name = Configuration.tmp_file(filename)
+      File.open(absolute_file_name, 'w') do |file|
         file.write @content
       end
+      absolute_file_name
     end
 
     def content
