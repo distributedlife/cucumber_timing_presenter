@@ -1,7 +1,7 @@
 module CucumberTimingPresenter
   class HtmlTemplate
     def initialize template_path
-      @content = ""
+      @content = ''
 
       File.open(template_path) do |file|
         while line = file.gets
@@ -11,12 +11,7 @@ module CucumberTimingPresenter
     end
 
     def output filename
-      tmp_path = "tmp/cucumber_timing_presenter"
-      unless File.exists? tmp_path
-        Dir::mkdir tmp_path
-      end
-      
-      File.open("tmp/cucumber_timing_presenter/#{filename}", "w") do |file|
+      File.open(Configuration.tmp_file(filename), 'w') do |file|
         file.write @content
       end
     end

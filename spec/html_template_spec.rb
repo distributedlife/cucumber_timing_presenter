@@ -2,6 +2,13 @@ require 'spec_helper'
 
 module CucumberTimingPresenter
   describe HtmlTemplate do
+
+    dir = File.expand_path('../../tmp/cucumber_timing_presenter', __FILE__)
+    #before do
+    #  Dir.mkdir dir
+    #end
+
+
     describe 'initialize' do
       it 'should raise an exception if the template is not found' do
         expect { HtmlTemplate.new 'path/does/not/exist' }.to raise_error
@@ -18,22 +25,22 @@ module CucumberTimingPresenter
     describe 'output' do
       it 'should create a cucumber_timing_presenter folder in tmp if it does not exist' do
         filename = "my_file.html"
-        path = "tmp/cucumber_timing_presenter"
+        #path = "tmp/cucumber_timing_presenter"
 
         html = HtmlTemplate.new Configuration.usage_template_path
         html.output filename
 
-        File.directory?(path).should == true
+        File.directory?(dir).should == true
 
-        File.delete "#{path}/#{filename}"
-        Dir.delete path
+        File.delete "#{dir}/#{filename}"
+        Dir.delete dir
 
-        File.directory?(path).should == false
+        File.directory?(dir).should == false
       end
 
       it 'should write the current content to the specified file in the tmp path' do
         filename = "my_file.html"
-        path = "tmp/cucumber_timing_presenter/#{filename}"
+        path = "#{dir}/#{filename}"
 
         html = HtmlTemplate.new Configuration.usage_template_path
         html.output filename

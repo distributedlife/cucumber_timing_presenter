@@ -2,20 +2,34 @@
 $:.push File.expand_path("../lib", __FILE__)
 require "cucumber_timing_presenter/version"
 
-Gem::Specification.new do |s|
-  s.name        = "cucumber_timing_presenter"
-  s.version     = DistributedLife::CucumberTimingPresenter::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Ryan Boucher"]
-  s.email       = ["ryan.boucher@distributedlife.com"]
-  s.homepage    = "http://github.com/distributedlife/cucumber_timings_presenter"
-  s.summary     = %q{A cucumber formatter to help you find slow steps}
-  s.description = %q{A cucumber formatter that generates html documents showing which steps are contributing to slow build times}
+Gem::Specification.new do |spec|
+  spec.name        = "cucumber_timing_presenter"
+  spec.version     = DistributedLife::CucumberTimingPresenter::VERSION
+  spec.platform    = Gem::Platform::RUBY
+  spec.authors     = ["Ryan Boucher"]
+  spec.email       = ["ryan.boucher@distributedlife.com"]
+  spec.summary     = <<-TEXT
+    A cucumber formatter to help you find slow steps}
+  TEXT
+  spec.description = <<-TEXT
+    A cucumber formatter that generates html documents showing which steps are contributing to slow build times}
+  TEXT
+  spec.homepage    = "http://github.com/distributedlife/cucumber_timings_presenter"
+  spec.license = 'MIT'
 
-  s.add_dependency "cucumber"
+  spec.files = `git ls-files`.split($/).reject { |f| f =~ /^samples\// }
+  spec.executables = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
+  spec.require_paths = ['lib']
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+
+  # development
+  #spec.add_development_dependency 'cucumber'
+  spec.add_development_dependency 'rspec', '>= 2.14.1'
+
+  # runtime
+  spec.add_runtime_dependency 'awesome_print'
+  spec.add_runtime_dependency 'cucumber'
+
+
 end
