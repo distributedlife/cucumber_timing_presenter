@@ -18,7 +18,7 @@ module CucumberTimingPresenter
       @duration = Time.now - @start_time
     end
 
-    def after_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background)
+    def after_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background, file_colon_line)
       @usage_record.record step_match.step_definition.regexp_source, @duration
     end
 
