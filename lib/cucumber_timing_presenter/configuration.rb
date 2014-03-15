@@ -6,9 +6,10 @@ module CucumberTimingPresenter
     class << self
 
       $tmp_path = 'tmp/cucumber_timing_presenter'
-      #def tmp_path
-      #  resolve_path_from_root
-      #end
+
+      def clean_tmp_dir
+        FileUtils.rm_r tmp_dir
+      end
 
       def tmp_dir
         dir = resolve_path_from_root $tmp_path
@@ -32,11 +33,11 @@ module CucumberTimingPresenter
         end
       end
 
-      def usage_template_path
+      def all_usage_results
         File.expand_path('templates/all_usage_results.html', File.dirname(__FILE__))
       end
 
-      def unused_steps_template_path
+      def unused_steps
         File.expand_path('templates/unused_steps.html', File.dirname(__FILE__))
       end
 
