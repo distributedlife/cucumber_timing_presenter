@@ -4,7 +4,7 @@ module CucumberTimingPresenter
       @step_mother = step_mother
       @io = io
       @options = options
-      
+
       @usage_record = UsageRecord.new
       @unused_steps = UnusedSteps.new
     end
@@ -19,12 +19,16 @@ module CucumberTimingPresenter
     end
 
     def after_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background, file_colon_line)
-      @usage_record.record step_match.step_definition.regexp_source, @duration
+
+      step_definition = step_match.step_definition
+      unless step_definition.nil? # nil if it's from a scenario outline
+        @usage_record.record step_definition.regexp_source, @duration
+      end
     end
 
     def after_features(features)
       get_unused_stepdefs
-      
+
       @usage_record.calculate
 
       AllUsageResultsHtmlPresenter.new @usage_record
