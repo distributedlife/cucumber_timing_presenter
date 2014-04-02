@@ -5,7 +5,7 @@ module CucumberTimingPresenter
     end
 
     def generate_html usage
-      html = HtmlTemplate.new Configuration.usage_template_path
+      html = HtmlTemplate.new Configuration.all_usage_results
       html.replace "PP_STEP_HIGHEST_AVERAGE", format_usage(usage.highest_average)
       html.replace "PP_STEP_HIGHEST_ELAPSED_TIME", format_usage(usage.highest_elapsed_time)
       html.replace "PP_STEP_GREATEST_VARIATION", format_usage(usage.greatest_variation)
